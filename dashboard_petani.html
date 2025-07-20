@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Petani - AgriOne</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f5f7;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 960px;
+      margin: 60px auto;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1b3d1b;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    ul {
+      line-height: 2;
+      color: #333;
+    }
+    a {
+      color: #2e7d32;
+      font-weight: bold;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .btn-logout {
+      background-color: #d32f2f;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn-logout:hover {
+      background-color: #b71c1c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>👨‍🌾 Dashboard Petani</h2>
+      <div>
+        <a href="index.html">🏠 Beranda</a>
+        <a href="#" class="btn-logout" onclick="logout()">Logout</a>
+      </div>
+    </div>
+    <p>Selamat datang di dashboard petani. Di sini kamu bisa mengakses fitur-fitur berikut:</p>
+    <ul>
+      <li>✅ Tambah dan kelola tanaman di dashboard</li>
+      <li>📊 Pantau estimasi panen dan status tanaman</li>
+      <li>💬 Konsultasi dengan AI Agronom</li>
+    </ul>
+  </div>
+
+  <script>
+    function logout() {
+      alert("Anda telah logout");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
