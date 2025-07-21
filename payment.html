@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Pembayaran | AgriOne</title>
+    <link rel="stylesheet" href="css/payment.css">
+    <style>
+    /* Styling untuk Pilihan Ekspedisi */
+    .shipping-options {
+        margin-bottom: 2rem;
+    }
+
+    .shipping-options h3 {
+        margin-bottom: 1rem;
+        color: #333;
+        font-size: 1.2rem;
+    }
+
+    .shipping-options .option {
+        margin-bottom: 10px;
+    }
+
+    /* Menyembunyikan radio button asli */
+    .shipping-options input[type="radio"] {
+        display: none;
+    }
+
+    .shipping-options label {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .shipping-options label:hover {
+        border-color: #aaa;
+    }
+
+    /* Style saat radio button dipilih */
+    .shipping-options input[type="radio"]:checked + label {
+        border-color: #2e7d32; /* Warna hijau primer Anda */
+        background-color: #f0fdf4;
+        box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+    }
+
+    .shipping-options label img {
+        width: 50px;
+        margin-right: 15px;
+    }
+
+    .shipping-options .option-details {
+        flex-grow: 1; /* Mendorong harga ke paling kanan */
+    }
+
+    .shipping-options .option-title {
+        font-weight: bold;
+        display: block;
+    }
+
+    .shipping-options .option-desc {
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    .shipping-options .option-price {
+        font-weight: bold;
+        color: #2e7d32;
+    }
+    </style>
+<body>
+    <div class="container">
+        <h2>Metode Pembayaran</h2>
+        <div class="shipping-options">
+            <h3>Pilih Ekspedisi</h3>
+            <div class="option">
+                <input type="radio" id="jne" name="ekspedisi" value="JNE" checked>
+                <label for="jne">
+                    <img src="img/jne.png" alt="JNE Logo">
+                    <div class="option-details">
+                        <span class="option-title">JNE Reguler</span>
+                        <span class="option-desc">Estimasi 2-3 hari kerja</span>
+                    </div>
+                    <span class="option-price">Rp15.000</span>
+                </label>
+            </div>
+            <div class="option">
+                <input type="radio" id="jnt" name="ekspedisi" value="JNT">
+                <label for="jnt">
+                    <img src="img/jnt.png" alt="J&T Logo">
+                    <div class="option-details">
+                        <span class="option-title">J&T Express</span>
+                        <span class="option-desc">Estimasi 1-2 hari kerja</span>
+                    </div>
+                    <span class="option-price">Rp18.000</span>
+                </label>
+            </div>
+        </div>
+        <div class="payment-methods">
+            <div class="method">
+                <img src="img/qris.png" alt="QRIS">
+                <div>QRIS</div>
+            </div>
+
+            <div class="method" id="transfer-bank-method">
+                <img src="img/bank.png" alt="Transfer Bank">
+                <div>Transfer Bank</div>
+            </div>
+
+            <div class="bank-options" id="bank-options-list">
+                <div class="bank-option">
+                    <input type="radio" id="bca" name="bank" value="BCA">
+                    <label for="bca">
+                        <img src="img/bca.png" alt="BCA"> Bank BCA
+                    </label>
+                </div>
+                <div class="bank-option">
+                    <input type="radio" id="mandiri" name="bank" value="MANDIRI">
+                    <label for="mandiri">
+                        <img src="img/mandiri.png" alt="Mandiri"> Bank Mandiri
+                    </label>
+                </div>
+                <div class="bank-option">
+                    <input type="radio" id="bri" name="bank" value="BRI">
+                    <label for="bri">
+                        <img src="img/bri.png" alt="BRI"> Bank BRI
+                    </label>
+                </div>
+            </div>
+
+            <div class="method">
+                <img src="img/cod.png" alt="COD">
+                <div>Bayar di Tempat</div>
+            </div>
+            <div class="method">
+                <img src="img/ewallet.png" alt="E-Wallet">
+                <div>E-Wallet</div>
+            </div>
+        </div>
+        <button class="confirm-btn" onclick="confirmPayment()">Simulasikan Pembayaran</button>
+    </div>
+    <div class="container" id="payment-instructions" style="display: none;">
+        <h2>Detail Pembayaran Virtual Account</h2>
+        <div class="payment-details">
+            <p>Selesaikan pembayaran Anda melalui <strong>Bank <span id="selected-bank-name"></span></strong>.</p>
+            
+            <div class="va-details">
+                <div class="va-label">Nomor Virtual Account</div>
+                <div class="va-number">
+                    <span id="va-number-display"></span>
+                    <button onclick="copyVA()">Salin</button>
+                </div>
+            </div>
+
+            <div class="instructions-steps">
+                <h4>Tata Cara Pembayaran:</h4>
+                
+                <div id="BCA-steps" style="display: none;">
+                    <ol>
+                        <li>Masukkan kartu ATM dan PIN Anda.</li>
+                        <li>Pilih "Transaksi Lainnya" > "Transfer" > "Ke Rekening BCA Virtual Account".</li>
+                        <li>Masukkan Nomor Virtual Account di atas dan tekan "Benar".</li>
+                        <li>Pastikan detail pembayaran sudah sesuai, lalu pilih "Ya".</li>
+                    </ol>
+                </div>
+
+                <div id="MANDIRI-steps" style="display: none;">
+                    <ol>
+                        <li>Masukkan kartu ATM dan PIN Anda.</li>
+                        <li>Pilih "Bayar/Beli" > "Lainnya" > "Multi Payment".</li>
+                        <li>Masukkan kode perusahaan "88080" dan tekan "Benar".</li>
+                        <li>Masukkan Nomor Virtual Account dan tekan "Benar".</li>
+                        <li>Konfirmasi detail pembayaran dan selesaikan transaksi.</li>
+                    </ol>
+                </div>
+
+                <div id="BRI-steps" style="display: none;">
+                    <ol>
+                        <li>Masukkan kartu ATM dan PIN Anda.</li>
+                        <li>Pilih "Transaksi Lain" > "Pembayaran" > "Lainnya" > "BRIVA".</li>
+                        <li>Masukkan Nomor Virtual Account dan pilih "Benar".</li>
+                        <li>Pastikan tagihan sesuai dan konfirmasi pembayaran.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <button class="confirm-btn" onclick="window.location.href='index.html'">Kembali ke Beranda</button>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

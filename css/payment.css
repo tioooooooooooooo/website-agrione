@@ -1,0 +1,243 @@
+body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: #f2f2f2;
+          margin: 0;
+          padding: 0;
+        }
+        .container {
+          max-width: 600px;
+          margin: 3rem auto;
+          background: white;
+          padding: 2rem;
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+          text-align: center;
+          color: #2d5a27;
+        }
+        .payment-methods {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+          margin-top: 2rem;
+        }
+        .method {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .method:hover {
+            border-color: #2d5a27;
+            background: #f9fff8;
+        }
+        .method img {
+            max-width: 60px;
+            margin-bottom: 0.5rem;
+        }
+        .confirm-btn {
+            margin-top: 2rem;
+            width: 100%;
+            background: linear-gradient(45deg, #2d5a27, #4CAF50);
+            color: white;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .confirm-btn:hover {
+            background: #3c8c3a;
+        }
+        .method.selected {
+            border-color: #4CAF50;
+            background: #e7fce8;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+        /* Styling untuk pilihan bank */
+        .bank-options {
+            display: none; /* 1. Sembunyikan secara default */
+            padding-left: 20px;
+            margin: -10px 0 15px 0;
+            border-left: 3px solid #eee;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        /* 2. Kelas untuk menampilkan pilihan bank */
+        .bank-options.show {
+            display: block;
+        }
+
+        .bank-option {
+            margin-top: 10px;
+        }
+
+        .bank-option input[type="radio"] {
+            display: none;
+        }
+
+        .bank-option label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+
+        .bank-option label:hover {
+            background-color: #f9f9f9;
+        }
+
+        .bank-option input[type="radio"]:checked + label {
+            border-color: #2e7d32;
+            background-color: #f0fdf4;
+        }
+
+        .bank-option img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Styling untuk Detail Pembayaran & VA */
+        #payment-instructions {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .payment-details {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .va-details {
+            margin: 1.5rem 0;
+        }
+
+        .va-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .va-number {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px dashed #aaa;
+        }
+
+        .va-number span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        .va-number button {
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .instructions-steps h4 {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .instructions-steps ol {
+            padding-left: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+        /* Styling untuk Kalender di Kartu Jadwal */
+        .calendar {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .calendar-header .nav-arrow {
+            cursor: pointer;
+            padding: 0 8px;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #999;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .calendar-grid .day {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Day cell styling */
+        .calendar-grid .day.other-month {
+            color: #ccc;
+        }
+
+        .calendar-grid .day.today {
+            background-color: #2e7d32;
+            color: white;
+            font-weight: bold;
+        }
+
+        .calendar-grid .day.event::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #e74c3c; /* Titik merah untuk penanda event */
+        }

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   AgriOne - Smart Farming, Smart Future
+  </title>
+  <link href="css/style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <nav class="container">
+    <div class="logo" style="display: flex; align-items: center;">
+     <div class="menu-toggle" onclick="toggleMenu()">
+      ☰
+     </div>
+     <img alt="Logo AgriOne" src="img/logo.png" style="height: 80px; margin-right: 15px;"/>
+     <span style="font-size: 1.5rem; font-weight: bold; color: #2d572c;">
+     </span>
+    </div>
+    <ul class="nav-links">
+     <li>
+      <a class="active" href="#" onclick="showSection('home')">
+       Home
+      </a>
+     </li>
+     <li>
+      <a class="active" href="#" onclick="showSection('profile')">
+       Profile
+      </a>
+     </li>
+     <li>
+      <a href="#" onclick="showSection('dashboard')">
+       Dashboard
+      </a>
+     </li>
+     <li>
+      <a href="#" onclick="showSection('marketplace')">
+       Marketplace
+      </a>
+     </li>
+     <li>
+      <a href="#" onclick="showSection('konsultasi')">
+       Konsultasi
+      </a>
+     </li>
+     <li>
+      <a href="#" onclick="showSection('edukasi')">
+       Edukasi
+      </a>
+     </li>
+     <li>
+      <a href="investasi.html">
+       Investasi
+      </a>
+     </li>
+    <li><a href="login.html">Login</a></li>
+</ul>
+   </nav>
+  </header>
+  <main class="container">
+   <section class="section active" id="home">
+    <div class="hero">
+     <h1>
+      <img alt="Logo AgriOne" src="img/logo.png" style="height: 160px; margin-right: 15px; border-radius: 50%;
+  background: linear-gradient(135deg, #2ed850, #ffffff);"/>
+     </h1>
+     <p>
+      Smart Farming, Smart Future
+     </p>
+     <p>
+      Solusi terpadu untuk pertanian modern Indonesia
+     </p>
+     <button class="cta-button" onclick="showSection('dashboard')">
+      Mulai Sekarang
+     </button>
+    </div>
+    <div class="stats-grid">
+     <div class="stat-card">
+      <div class="stat-number">
+       150+
+      </div>
+      <div>
+       Petani Terdaftar
+      </div>
+     </div>
+     <div class="stat-card">
+      <div class="stat-number">
+       45
+      </div>
+      <div>
+       Produk Tersedia
+      </div>
+     </div>
+     <div class="stat-card">
+      <div class="stat-number">
+       98%
+      </div>
+      <div>
+       Tingkat Kepuasan
+      </div>
+     </div>
+     <div class="stat-card">
+      <div class="stat-number">
+       24/7
+      </div>
+      <div>
+       Konsultasi AI
+      </div>
+     </div>
+    </div>
+    <div class="stats-grid-petani">
+      <div class="stat-petani">
+        <div>
+          <img alt="foto petani" src="img/petani1.png" style="height:120px";/>
+        </div>
+        <div>
+          <p>Nama            : Pak Rayan</p>
+          <p>Asal daerah     : Sukohardjo</p>
+          <p>Jenis pertanian : Padi</p>
+        </div>
+      </div>
+      <div class="stat-petani">
+        <div>
+          <img alt="foto petani" src="img/petani2.png" style="height:120px";/>
+        </div>
+        <div>
+          <p>Nama            : Pak Andika</p>
+          <p>Asal daerah     : Malang</p>
+          <p>Jenis pertanian : Holticultural</p>
+        </div>
+      </div>
+      <div class="stat-petani">
+        <div>
+          <img alt="foto petani" src="img/petani3.png" style="height:120px";/>
+        </div>
+        <div>
+          <p>Nama            : Pak Maryanto</p>
+          <p>Asal daerah     : Lampung Timur</p>
+          <p>Jenis pertanian : Jagung</p>
+        </div>
+      </div>
+    </div>
+    <div class="faq-container">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+
+        <details class="faq-item">
+            <summary>Apa itu AgriOne? </summary>
+            <p>AgriOne adalah platform digital inovatif yang membantu petani Indonesia meningkatkan produktivitas melalui teknologi modern, analisis data, dan edukasi pertanian.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Siapa saja yang bisa menggunakan AgriOne?</summary>
+            <p>Petani - untuk jual hasil panen dan konsultasi<br>
+              Pembeli - untuk beli produk segar langsung dari petani<br>
+              Investor - untuk investasi di proyek pertanian<br>
+              Siapa saja - yang ingin belajar tentang pertanian</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Produk apa saja yang bisa dijual di Marketplace?</summary>
+            <p>Anda bisa menjual berbagai macam produk agrikultur, mulai dari hasil tani (padi, jagung, sayuran), bibit tanaman, hingga pupuk organik maupun anorganik.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Apakah produk di AgriOne organik?</summary>
+            <p>Produk memiki keterangan masing-masing, apakah menggunakan pupuk kimia atau organik.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Bagaimana cara konsultasi dengan ahli pertanian? </summary>
+            <p>Masuk ke fitur konsultasi, pilih opsi chat atau telepon, lalu pilih ahli sesuai bidangnya untuk langsung berdiskusi.</p>
+        </details>
+    </div>
+    <section class="testimonial-section">
+      <div class="container">
+          <h2>Apa Kata Mereka Tentang AgriOne?</h2>
+          <p class="testimonial-subtitle">Cerita nyata dari para pengguna yang telah merasakan manfaat platform kami.</p>
+
+          <div class="testimonial-grid">
+              <div class="testimonial-card">
+                  <div class="testimonial-header">
+                      <img src="https://i.pravatar.cc/100?u=budi" alt="Foto Budi Santoso" class="testimonial-avatar">
+                      <div class="testimonial-author">
+                          <h3>Budi Santoso</h3>
+                          <p>Petani Padi, Subang</p>
+                      </div>
+                  </div>
+                  <div class="testimonial-rating">
+                      <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                  </div>
+                  <p class="testimonial-body">
+                      "Sejak menggunakan Agrione, hasil panen saya meningkat 30%! Fitur konsultasi dengan ahli pertanian sangat membantu mengatasi masalah hama yang selama ini meresahkan. Dashboard yang mudah dipahami membuat saya bisa monitor kondisi lahan dengan lebih baik."
+                  </p>
+              </div>
+
+              <div class="testimonial-card">
+                  <div class="testimonial-header">
+                      <img src="https://i.pravatar.cc/100?u=rian" alt="Foto Rian Kurniawan" class="testimonial-avatar">
+                      <div class="testimonial-author">
+                          <h3>Rian Kurniawan</h3>
+                          <p>Mahasiswa Pertanian IPB</p>
+                      </div>
+                  </div>
+                  <div class="testimonial-rating">
+                      <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                  </div>
+                  <p class="testimonial-body">
+                      "Konten edukasi di Agrione sangat up-to-date. Magang virtual dan case study yang disediakan membantu saya memahami aplikasi teori ke praktik. Recommended untuk sesama mahasiswa pertanian!"
+                  </p>
+              </div>
+
+              <div class="testimonial-card">
+                  <div class="testimonial-header">
+                      <img src="https://i.pravatar.cc/100?u=siti" alt="Foto Siti Aminah" class="testimonial-avatar">
+                      <div class="testimonial-author">
+                          <h3>Siti Aminah</h3>
+                          <p>Petani Sayuran Organik, Bogor</p>
+                      </div>
+                  </div>
+                  <div class="testimonial-rating">
+                      <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                  </div>
+                  <p class="testimonial-body">
+                      "Marketplace Agrione benar-benar game changer! Sekarang saya bisa langsung jual sayuran organik ke konsumen tanpa perantara. Keuntungan meningkat drastis dan pembeli lebih percaya dengan sertifikat organik yang ditampilkan."
+                  </p>
+              </div>
+
+              <div class="testimonial-card">
+                  <div class="testimonial-header">
+                      <img src="https://i.pravatar.cc/100?u=maya" alt="Foto Maya Sari" class="testimonial-avatar">
+                      <div class="testimonial-author">
+                          <h3>Maya Sari</h3>
+                          <p>Ibu Rumah Tangga, Jakarta</p>
+                      </div>
+                  </div>
+                  <div class="testimonial-rating">
+                      <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                  </div>
+                  <p class="testimonial-body">
+                      "Akhirnya ada platform yang menghubungkan langsung dengan petani! Sayuran yang saya beli selalu fresh dan harganya lebih murah. Fitur tracking dari kebun sampai rumah membuat saya yakin dengan kualitasnya."
+                  </p>
+              </div>
+          </div>
+      </div>
+  </section>
+   </section>
+   <section class="section" id="profile">
+    <div class="profile">
+      <div class="profile-header">
+        <div class="profile-logo"><img alt="Logo AgriOne" src="img/logo.png" style="height: 160px; margin-right: 15px;"/></div>
+      </div>
+
+      <div class="profile-description">
+        <strong>Agrione</strong> adalah platform digital inovatif yang didedikasikan untuk memajukan sektor pertanian Indonesia melalui teknologi modern. Kami berkomitmen untuk menjembatani kesenjangan antara petani tradisional dengan teknologi pertanian terkini, menciptakan ekosistem pertanian yang lebih efisien, berkelanjutan, dan menguntungkan.
+      </div>
+
+      <div class="profile-content">
+        <div class="profile-section">
+          <h3>Visi</h3>
+            <ul>
+              <li>Smart Farming: Transformasi sektor pertanian melalui teknologi digital, analitik data, dan automasi proses.</li>
+              <li>Smart Future: Pertanian yang lebih efisien, berkelanjutan, dan berdaya saing global.</li>
+            </ul>
+        </div>
+      </div>
+      <div class="profile-description">
+        <h1>Kisah Sukses Petani Pengguna AgriOne</h1>
+        <img alt="Logo AgriOne" src="img/ibusari.png" style="height:250px; margin-right: 15px;"/>
+        <p>Ibu Sari, yang memiliki lahan sayuran organik seluas 2 hektar di Bandung, menggunakan fitur analisis cuaca AgriOne untuk mengoptimalkan jadwal tanam. Dengan prediksi cuaca yang akurat, ia dapat menghindari kerugian akibat hujan berlebihan dan kekeringan. Dalam 6 bulan pertama, produktivitas sayuran organiknya meningkat 40%, dan melalui platform edukasi AgriOne, ia mempelajari teknik pemupukan alami yang mengurangi biaya produksi hingga 25%. Kini, Ibu Sari telah menjadi supplier tetap untuk beberapa supermarket organik di Bandung dengan omzet bulanan yang meningkat 3 kali lipat.</p>
+      </div>
+
+    <div class="faq-container">
+      <h2>Panduan Penggunaan</h2>
+
+        <details class="faq-item">
+              <summary>Cara Memulai:</summary>
+              <p>1. Kunjungi https://agri-one-cyan.vercel.app/<br>
+                 2. Daftar dengan mengisi form registrasi<br>
+                 3. Verifikasi email<br> 
+                 4. Lengkapi profile Anda</p>
+          </details>
+
+          <details class="faq-item">
+              <summary>Dashboard</summary>
+              <p>1. Status Tanaman: Berisi status tanaman berdasarkan waktu pertama kali menanam dan kondisi cuaca.<br>
+                 2. Estimasi Panen: Berisi estimasi hasil panen berdasarkan luas lahan, estimasi cuaca, dan waktu rawan hama.<br>
+                 3. Jadwal Kegiatan: Berisi jadwal kegiatan pertanian disertain alamarm pengingat kegiatan-kegiatan penting pada pertanian yang sedang dilakukan.<br>
+                 4. Analisis Harga: Berisi estimasi naik turunnya harga sayuran<br>
+                 5. Peringatan: Berisi peringatan cuaca buruk dan waktu rawan hama<br>
+                 6. Rekomendasi Waktu: Berisi rekomendasi waktu berupa tanggal untuk menanam tanaman<br>
+                 7. Rekomendasi Tanaman: Berisi rekomendasi tanaman yang baik ditanam berdasarkan cuaca</p>
+          </details>
+
+          <details class="faq-item">
+              <summary>Marketplace</summary>
+              <p>1. Tambahkan detail produk yang akan Anda jual<br>
+                 2. Unggah foto produk yang akan Anda jual pada kolom "add file"<br></p>
+                
+                 <h4>Pembelian produk di market place</h4>
+              <p>1. Untuk membeli produk, klik "beli sekarang"<br>
+                 2. Pilih metode dan ekspedisi untuk pengantaran produk yang Anda beli<br>
+                 3. Pilih metode pembayaran untuk produk yang Anda beli</p>
+          </details>
+
+          <details class="faq-item">
+              <summary>Konsultasi</summary>
+              <p>1. Anda dapat memilih konsultan pertanian untuk berkonsultasi<br>
+                 2. Klik chat atau telepon untuk mulai berkonsultasi<br>
+                 3. Durasi konsultasi untuk satu kali sesi adalah 30 menit</p>
+          </details>
+
+          <details class="faq-item">
+              <summary>Edukasi </summary>
+              <p>Pada navbar Edukasi Anda dapat menonton video edukasi Smart Farming dan Marketing Digital.</p>
+          </details>
+          <details class="faq-item">
+              <summary>Investasi </summary>
+              <p>1. Tersedia berbagai proyek pertanian yang sedang membutuhkan dana<br>
+                 2. Anda dapat memilih proyek untuk menginvestasikan dana Anda<br>
+                 3. Jika diperlukan, Anda dapat melakukan simulasi investasi terlebih dahulu<br>
+                 4. Anda juga dapat melihat portofolio investasi Anda selama berinvestasi di AgriOne</p>
+          </details>
+      </div>
+
+      <div class="profile-contact">
+        <div class="support-section">
+          <h3>Didukung oleh:</h3>
+          <div class="support-logos">
+            <img src="img/support.png" alt="Logo Support">
+          </div>
+        </div>
+        <div class="profile-contact-info">
+          <h3>Informasi Kontak</h3>
+            <div>📧 agri.one@gmail.com</div><br>
+            <div>📞 +62 858 6381 2202</div><br>
+            <div>🌐 www.techflowsolutions.com</div><br>
+            <div>📍 indonesia</div>
+        </div>
+      </div>
+    </div>
+   </section>
+   <section class="section" id="dashboard">
+    <div class="section-dashboard">
+    <h2>
+     🌱 Smart Farm Dashboard
+    </h2>
+    <div class="weather-widget">
+     <h3>
+      🌤️ Kondisi Cuaca Hari Ini
+     </h3>
+     <div class="weather-info">
+      <div class="weather-item">
+       <strong>
+        Suhu
+       </strong>
+       <br/>
+       28°C
+      </div>
+      <div class="weather-item">
+       <strong>
+        Kelembaban
+       </strong>
+       <br/>
+       75%
+      </div>
+      <div class="weather-item">
+       <strong>
+        Curah Hujan
+       </strong>
+       <br/>
+       5mm
+      </div>
+      <div class="weather-item">
+       <strong>
+        Angin
+       </strong>
+       <br/>
+       12 km/h
+      </div>
+     </div>
+    </div>
+    <div class="dashboard-grid">
+      <div class="card">
+          <div class="card-icon">
+              <img alt="status tanaman" src="img/statustanaman.png" style="height: 80px;"/>
+          </div>
+          <h3>Status Tanaman</h3>
+          <p>
+              Padi: Fase berbunga<br/>
+              Jagung: Siap panen 5 hari
+          </p>
+      </div>
+      <div class="card">
+          <div class="card-icon">
+              <img alt="estimasi panen" src="img/estimasipanen.png" style="height: 80px;"/>
+          </div>
+          <h3>Estimasi Panen</h3>
+          <p>
+              Padi: 2.5 ton/ha<br/>
+              Jagung: 3.2 ton/ha
+          </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+            <img alt="jadwal kegiatan" src="img/jadwalkegiatan.png" style="height: 80px;"/>
+        </div>
+        <h3>Jadwal Kegiatan Terdekat</h3>
+        
+        <ul id="dashboard-jadwal-list" class="kegiatan-list">
+            <li>Tidak ada jadwal terdekat.</li>
+        </ul>
+
+        <button class="cta-button" onclick="showSection('kalender')">
+            Lihat Kalender Lengkap
+        </button>
+      </div>
+
+      <div class="card">
+          <div class="card-icon">
+              <img alt="analisa harga" src="img/analisaharga.png" style="height: 80px;"/>
+          </div>
+          <h3>Analisa Harga</h3>
+          <p>
+              Beras: Rp 12.000/kg ↑<br/>
+              Jagung: Rp 5.500/kg ↓
+          </p>
+      </div>
+
+      <div class="card card-peringatan">
+          <div class="card-icon">
+              <img alt="peringatan" src="img/peringatan.png" style="height: 80px;"/>
+          </div>
+          <h3>Peringatan</h3>
+          <p id="peringatan-text">
+              Potensi cuaca buruk besok. Pastikan sistem drainase lahan Anda berfungsi dengan baik untuk menghindari genangan air.
+          </p>
+          <button class="quick-action" onclick="tandaiDibaca(this)">Tandai Sudah Dibaca</button>
+      </div>
+
+      <div class="card">
+          <div class="card-icon">
+              <img alt="rekomendasi waktu" src="img/rekomendasiwaktu.png" style="height: 80px;"/>
+          </div>
+          <h3>Rekomendasi Waktu Tanam</h3>
+          <p>
+              Padi: Tanam 10 Juli - Panen 15 Oktober<br/>
+              Jagung: Tanam 20 Juli - Panen 25 Oktober
+          </p>
+          <button class="quick-action" onclick="toggleRekomendasi()">Lihat Analisis Cuaca</button>
+          <div class="rekomendasi-detail" id="rekomendasi-detail">
+              <p><strong>Analisis:</strong> Berdasarkan prakiraan cuaca saat ini (Suhu: 28°C, Curah Hujan: 5mm) dan prediksi 3 bulan ke depan, kondisi sangat ideal untuk tanaman umbi-umbian.</p>
+              <p><strong>Rekomendasi Tanaman:</strong> <strong>Singkong, Ubi Jalar, dan Talas.</strong></p>
+          </div>
+      </div>
+    </div>
+    <div class="quick-actions">
+     <button class="quick-action" onclick="alert('Fitur dalam pengembangan')">
+      Update Status Lahan
+     </button>
+     <button class="quick-action" onclick="alert('Fitur dalam pengembangan')">
+      Lihat Riwayat
+     </button>
+     <button class="quick-action" onclick="alert('Fitur dalam pengembangan')">
+      Unduh Laporan
+     </button>
+    </div>
+    </div>
+   </section>
+   <section class="section" id="marketplace">
+    <div class="section-marketplace">
+    <h2>
+     🛒 Marketplace Tani
+    </h2>
+    <div class="quick-actions">
+     <button class="quick-action" onclick="filterProducts('all')">
+      Semua Produk
+     </button>
+     <button class="quick-action" onclick="filterProducts('hasil')">
+      Hasil Tani
+     </button>
+     <button class="quick-action" onclick="filterProducts('bibit')">
+      Bibit
+     </button>
+     <button class="quick-action" onclick="filterProducts('pupuk')">
+      Pupuk
+     </button>
+    </div>
+    <form id="formProduk" onsubmit="tambahProduk(event)">
+        <input type="text" id="namaProduk" placeholder="Nama Produk" required />
+        <input type="number" id="hargaProduk" placeholder="Harga (Rp)" required />
+        <input type="number" id="stokProduk" placeholder="Stok" required />
+        <input type="text" id="petaniProduk" placeholder="Nama Petani" required />
+        <input type="text" id="satuanProduk" placeholder="Satuan (misal: /kg)" required />
+        <textarea id="deskripsiProduk" placeholder="Deskripsi Produk" required></textarea>
+        <input type="file" id="gambarProduk" accept="image/*" required />
+        <button type="submit" class="cta-button">Tambah Produk</button>
+    </form>
+
+    <div class="marketplace-grid" id="productGrid">
+     <div class="product-card" data-category="hasil">
+      <div class="product-image">
+       <img alt="beras" src="img/beras.png" style="height: 120px;"/>
+      </div>
+      <div class="product-info">
+       <h3>
+        Beras Premium
+       </h3>
+       <div class="product-price">
+        Rp 12.000/kg
+       </div>
+       <div class="product-seller">
+        Petani: Pak Budi - Karawang<br>
+        pupuk : organik
+       </div>
+       <p>
+        Beras berkualitas tinggi dari sawah organik
+       </p>
+       <button class="cta-button btn-beli" onclick="window.location.href='payment.html'"> 
+        Beli Sekarang
+       </button>
+       <button class="cta-button" onclick="window.location.href='https://wa.me//6281563812202'">
+        hubungi penjual
+       </button>
+      </div>
+     </div>
+     <div class="product-card" data-category="hasil">
+      <div class="product-image">
+       <img alt="jagung" src="img/jagung.png" style="height: 120px;"/>
+      </div>
+      <div class="product-info">
+       <h3>
+        Jagung Manis
+       </h3>
+       <div class="product-price">
+        Rp 5.500/kg
+       </div>
+       <div class="product-seller">
+        Petani: Ibu Sari - Bogor<br>
+        pupuk : Kimia
+       </div>
+       <p>
+        Jagung segar hasil panen hari ini
+       </p>
+       <button class="cta-button btn-beli" onclick="window.location.href='payment.html'"> 
+        Beli Sekarang
+       </button>
+       <button class="cta-button" onclick="window.location.href='https://wa.me//6281563812202'">
+        hubungi penjual
+       </button>
+      </div>
+     </div>
+     <div class="product-card" data-category="bibit">
+      <div class="product-image">
+       <img alt="bibit tomat" src="img/bibittomat.png" style="height: 130px;"/>
+      </div>
+      <div class="product-info">
+       <h3>
+        Bibit Tomat Unggul
+       </h3>
+       <div class="product-price">
+        Rp 2.500/pack
+       </div>
+       <div class="product-seller">
+        Toko: Bibit Nusantara
+       </div>
+       <p>
+        Bibit tomat varietas unggul, tahan penyakit
+       </p>
+       <button class="cta-button btn-beli" onclick="window.location.href='payment.html'"> 
+        Beli Sekarang
+       </button>
+       <button class="cta-button" onclick="window.location.href='https://wa.me//6281563812202'">
+        hubungi penjual
+       </button>
+      </div>
+     </div>
+     <div class="product-card" data-category="hasil">
+      <div class="product-image">
+       <img alt="sayur organik" src="img/sayurorganik.png" style="height: 120px;"/>
+      </div>
+      <div class="product-info">
+       <h3>
+        Sayuran Organik
+       </h3>
+       <div class="product-price">
+        Rp 8.000/kg
+       </div>
+       <div class="product-seller">
+        Petani: Kelompok Tani Sehat<br>
+        pupuk : Organik
+       </div>
+       <p>
+        Paket sayuran organik segar dan sehat
+       </p>
+       <button class="cta-button btn-beli" onclick="window.location.href='payment.html'"> 
+        Beli Sekarang
+       </button>
+       <button class="cta-button" onclick="window.location.href='https://wa.me//6281563812202'">
+        hubungi penjual
+       </button>
+      </div>
+     </div>
+     <div class="product-card" data-category="pupuk">
+      <div class="product-image">
+       <img alt="beras" src="img/pupuknpk.jpeg" style="height: 120px;"/>
+      </div>
+      <div class="product-info">
+       <h3>
+        Mutiara Pupuk NPK 16-16-16
+       </h3>
+       <div class="product-price">
+        Rp 20.000/sak
+       </div>
+       <div class="product-seller">
+        Toko : Merauke Tetap Jaya
+       </div>
+       <p>
+        Kombinasi amonium dan nitrat membuat pertumbuhan bunga jadi seimbang
+       </p>
+       <button class="cta-button btn-beli" onclick="window.location.href='payment.html'"> 
+        Beli Sekarang
+       </button>
+       <button class="cta-button" onclick="window.location.href='https://wa.me//6281563812202'">
+        hubungi penjual
+       </button>
+      </div>
+     </div>
+     <div class="product-card" data-category="pupuk">
+      <div class="product-image">
+       <img alt="beras" src="img/pupukorganikcair.jpeg" style="height: 120px;"/>
+      </div>
+      <div class="product-info">
+       <h3>
+        GDM Pupuk Organik Cair Spesial Tanaman Sayur 1L
+       </h3>
+       <div class="product-price">
+        Rp 60.000/L
+       </div>
+       <div class="product-seller">
+        Toko : Subur Tanaman
+       </div>
+       <p>
+        Menyuburkan tanaman sayur anda hingga panen
+       </p>
+       <button class="cta-button btn-beli" onclick="window.location.href='payment.html'"> 
+        Beli Sekarang
+       </button>
+       <button class="cta-button" onclick="window.location.href='https://wa.me//6281563812202'">
+        hubungi penjual
+       </button>
+      </div>
+     </div>
+    </div>
+    </div>
+   </section>
+   <section class="section" id="konsultasi">
+    <div class="section-consult">
+    <h2>
+     🧠 Konsultasi
+    </h2>
+    <div class="consult-switcher">
+     <button class="active" onclick="showConsult('expert')">
+      👨‍🌾 Ahli Pertanian
+     </button>
+    </div>
+    <div class="consult-box active" id="consult-expert">
+     <div class="dashboard-grid">
+      <div class="card">
+       <div class="card-icon">
+        <img alt="ahli pertanian" src="img/ahlitanipria.png" style="height: 180px";/>
+       </div>
+       <h3>
+        Ir. Andi Tani
+       </h3>
+       <p>
+        Ahli Hama dan Penyakit Tanaman
+       </p>
+       <p><strong>💰 Harga:</strong> Rp50.000/sesi</p>
+        <p><strong>🕒 Pengalaman:</strong> 10 tahun</p>
+        <p><strong>⭐ Rating:</strong> 
+        <span class="stars">★★★★★</span>
+  </p>
+       <button class="cta-button" onclick="window.location.href='https://wa.me//6281563812202'">
+    Chat Sekarang
+        </button>
+        <button class="cta-button btn-phone" onclick="window.location.href='https://wa.me//6281563812202'">
+        📞 Telepon
+        </button>
+      </div>
+      <div class="card">
+       <div class="card-icon">
+        <img alt="ahli pertanian" src="img/ahlitaniwanita.png" style="height:180px";/>
+       </div>
+       <h3>
+        Dr. Siti Pertiwina
+       </h3>
+       <p>
+        Spesialis Tanaman Hortikultura
+       </p>
+       <p><strong>💰 Harga:</strong> Rp30.000/sesi</p>
+        <p><strong>🕒 Pengalaman:</strong> 5 tahun</p>
+        <p><strong>⭐ Rating:</strong> 
+        <span class="stars">★★★★</span>
+  </p>
+        <button class="cta-button" onclick="window.location.href='https://wa.me//6281563812202'">
+          💬Chat Sekarang
+        </button>
+        <button class="cta-button btn-phone" onclick="window.location.href='https://wa.me//6281563812202'">
+        📞 Telepon
+        </button>
+      </div>
+     </div>
+    </div>
+    </div>
+   </section>
+   <section class="section" id="edukasi">
+    <h2>
+     🎓 Edukasi &amp; Pelatihan
+    </h2>
+    <div class="dashboard-grid">
+     <div class="card">
+      <div class="card-icon">
+       📹
+      </div>
+      <h3>
+       Smart Farming
+      </h3>
+      <p>
+       Video dan artikel seputar teknologi pertanian modern.
+      </p>
+      <button class="cta-button" onclick="window.location.href='edukasi.html'">
+        Lihat Materi
+      </button>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       📢
+      </div>
+      <h3>
+       Digital Marketing Tani
+      </h3>
+      <p>
+       Panduan memasarkan hasil tani secara online.
+      </p>
+      <button class="cta-button" onclick="window.location.href='materi.html'">
+        pelajari
+      </button>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="kalender">
+    <h2>🗓️ Kalender Kegiatan Pertanian</h2>
+    <div class="calendar-container">
+        <div class="calendar-main">
+            <div class="calendar-header">
+                <button id="prev-month">‹</button>
+                <h3 id="month-year">Juli 2025</h3>
+                <button id="next-month">›</button>
+            </div>
+            <div class="calendar-days">
+                <div>Min</div><div>Sen</div><div>Sel</div><div>Rab</div><div>Kam</div><div>Jum</div><div>Sab</div>
+            </div>
+            <div class="calendar-grid" id="calendar-grid">
+                </div>
+        </div>
+        <div class="event-panel">
+          <h3>Jadwal Hari Ini</h3>
+          <p id="event-date">Pilih tanggal untuk melihat jadwal.</p>
+          <div id="event-details">
+              </div>
+          <button class="quick-action" id="add-event-btn" style="display: none;">+ Tambah Jadwal</button>
+      </div>
+    </div>
+  </section>
+  </main>
+  <footer>
+   <div class="container">
+    <p>
+     © 2024 AgriOne. Platform pertanian digital untuk Indonesia yang lebih maju.
+    </p>
+    <p>
+     Kelompok 17 - Mata Kuliah Bisnis Digital
+    </p>
+   </div>
+  </footer>
+  <script src="js/script.js">
+  </script>
+  <script>
+  window.onload = function() {
+    if (window.location.hash === "#marketplace") {
+      const dashboard = document.getElementById("dashboard");
+      if (dashboard) dashboard.style.display = "none";
+
+      const marketplace = document.getElementById("marketplace");
+      if (marketplace) marketplace.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+</script>
+ </body>
+</html>

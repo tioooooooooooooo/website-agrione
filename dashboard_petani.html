@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard Petani - AgriOne</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f3f5f7; margin: 0; padding: 0; }
+        .container { max-width: 960px; margin: 60px auto; background: white; padding: 30px 40px; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        h2 { color: #1b3d1b; font-size: 32px; margin-bottom: 20px; }
+        h3 { color: #333; margin-top: 40px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        a { color: #2e7d32; font-weight: bold; text-decoration: none; margin-right: 10px; }
+        a:hover { text-decoration: underline; }
+        .btn-logout { background-color: #d32f2f; color: white; padding: 8px 16px; border-radius: 10px; text-decoration: none; font-weight: bold; }
+        .btn-logout:hover { background-color: #b71c1c; }
+        
+        /* BARU: Styling untuk Laporan Rinci */
+        .monthly-report { margin-top: 2rem; }
+        .report-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        #month-selector { padding: 8px 12px; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc; }
+        .report-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; text-align: center; }
+        .summary-card { background: #f8f9fa; padding: 1rem; border-radius: 8px; }
+        .summary-card .label { font-size: 0.9rem; color: #666; }
+        .summary-card .value { font-size: 1.5rem; font-weight: bold; color: #2e7d32; }
+        .report-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .report-table th, .report-table td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        .report-table th { background-color: #f2f2f2; }
+        .report-table tbody tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>👨‍🌾 Dashboard Petani</h2>
+            <div>
+                <a href="index.html">🏠 Beranda</a>
+                <a href="#" class="btn-logout" onclick="logout()">Logout</a>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h3>Grafik Penjualan Bulanan</h3>
+            <canvas id="salesChart"></canvas>
+        </div>
+
+        <div class="monthly-report">
+            <h3>Laporan Penjualan Rinci</h3>
+            <div class="report-controls">
+                <label for="month-selector">Pilih Bulan:</label>
+                <select id="month-selector">
+                    </select>
+            </div>
+            <div class="report-summary">
+                <div class="summary-card">
+                    <div class="label">Total Pendapatan</div>
+                    <div class="value" id="report-total-revenue">Rp...</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Total Unit Terjual</div>
+                    <div class="value" id="report-total-items">...</div>
+                </div>
+            </div>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Nama Produk</th>
+                        <th>Jumlah Terjual</th>
+                        <th>Total Pendapatan</th>
+                    </tr>
+                </thead>
+                <tbody id="report-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+      function logout() {
+          alert("Anda telah logout");
+          window.location.href = "index.html";
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+          // ======================================================
+          // BARU: Data penjualan lengkap dari Februari - Juli
+          // ======================================================
+          const detailedSalesData = {
+              'feb': {
+                  totalRevenue: 3800000,
+                  totalItems: 255,
+                  products: [
+                      { name: 'Beras Premium', sold: 100, revenue: 1200000 },
+                      { name: 'Jagung Manis', sold: 120, revenue: 660000 },
+                      { name: 'Bibit Tomat', sold: 15, revenue: 37500 },
+                      { name: 'Pupuk Organik Cair', sold: 30, revenue: 1902500 }
+                  ]
+              },
+              'mar': {
+                  totalRevenue: 4500000,
+                  totalItems: 290,
+                  products: [
+                      { name: 'Beras Premium', sold: 120, revenue: 1440000 },
+                      { name: 'Jagung Manis', sold: 130, revenue: 715000 },
+                      { name: 'Sayuran Organik', sold: 40, revenue: 320000 },
+                      { name: 'Pupuk NPK', sold: 20, revenue: 400000 },
+                      { name: 'Pupuk Organik Cair', sold: 20, revenue: 1625000 }
+                  ]
+              },
+              'apr': {
+                  totalRevenue: 5250000,
+                  totalItems: 335,
+                  products: [
+                      { name: 'Beras Premium', sold: 180, revenue: 2160000 },
+                      { name: 'Jagung Manis', sold: 110, revenue: 605000 },
+                      { name: 'Sayuran Organik', sold: 25, revenue: 200000 },
+                      { name: 'Bibit Tomat', sold: 20, revenue: 50000 },
+                      { name: 'Pupuk NPK', sold: 20, revenue: 400000 },
+                      { name: 'Pupuk Organik Cair', sold: 20, revenue: 1835000 }
+                  ]
+              },
+              'may': {
+                  totalRevenue: 4800000,
+                  totalItems: 310,
+                  products: [
+                      { name: 'Beras Premium', sold: 150, revenue: 1800000 },
+                      { name: 'Jagung Manis', sold: 100, revenue: 550000 },
+                      { name: 'Sayuran Organik', sold: 30, revenue: 240000 },
+                      { name: 'Pupuk NPK', sold: 30, revenue: 600000 },
+                      { name: 'Pupuk Organik Cair', sold: 20, revenue: 1610000 }
+                  ]
+              },
+              'jun': {
+                  totalRevenue: 6100000,
+                  totalItems: 380,
+                  products: [
+                      { name: 'Beras Premium', sold: 200, revenue: 2400000 },
+                      { name: 'Jagung Manis', sold: 150, revenue: 825000 },
+                      { name: 'Pupuk NPK', sold: 30, revenue: 600000 },
+                      { name: 'Pupuk Organik Cair', sold: 40, revenue: 2275000 }
+                  ]
+              },
+              'jul': {
+                  totalRevenue: 5500000,
+                  totalItems: 410,
+                  products: [
+                      { name: 'Beras Premium', sold: 150, revenue: 1800000 },
+                      { name: 'Jagung Manis', sold: 200, revenue: 1100000 },
+                      { name: 'Sayuran Organik', sold: 50, revenue: 400000 },
+                      { name: 'Bibit Tomat', sold: 10, revenue: 25000 },
+                      { name: 'Pupuk Organik Cair', sold: 35, revenue: 2175000 }
+                  ]
+              }
+          };
+
+          const monthSelector = document.getElementById('month-selector');
+          const reportTotalRevenue = document.getElementById('report-total-revenue');
+          const reportTotalItems = document.getElementById('report-total-items');
+          const reportTableBody = document.getElementById('report-table-body');
+          const ctx = document.getElementById('salesChart').getContext('2d');
+
+          function renderReport(month) {
+              const data = detailedSalesData[month];
+              if (!data) return;
+
+              reportTotalRevenue.innerText = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(data.totalRevenue);
+              reportTotalItems.innerText = data.totalItems + ' unit';
+              
+              reportTableBody.innerHTML = '';
+              data.products.forEach(product => {
+                  const row = `
+                      <tr>
+                          <td>${product.name}</td>
+                          <td>${product.sold}</td>
+                          <td>${new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(product.revenue)}</td>
+                      </tr>
+                  `;
+                  reportTableBody.innerHTML += row;
+              });
+          }
+
+          const months = Object.keys(detailedSalesData);
+          months.forEach(month => {
+              const option = document.createElement('option');
+              option.value = month;
+              option.textContent = new Date(`2024-${month}-01`).toLocaleString('id-ID', { month: 'long' });
+              monthSelector.appendChild(option);
+          });
+
+          monthSelector.addEventListener('change', (event) => {
+              renderReport(event.target.value);
+          });
+
+          if (months.length > 0) {
+              monthSelector.value = months[months.length - 1];
+              renderReport(months[months.length - 1]);
+          }
+          
+          const chartLabels = months.map(month => new Date(`2024-${month}-01`).toLocaleString('id-ID', { month: 'short' }));
+          const chartData = months.map(month => detailedSalesData[month].totalRevenue);
+
+          new Chart(ctx, {
+              type: 'line',
+              data: {
+                  labels: chartLabels,
+                  datasets: [{
+                      label: 'Penjualan (Rp)',
+                      data: chartData,
+                      backgroundColor: 'rgba(46, 125, 50, 0.2)',
+                      borderColor: 'rgba(46, 125, 50, 1)',
+                      borderWidth: 2,
+                      fill: true,
+                      tension: 0.4
+                  }]
+              },
+              options: {
+                  scales: {
+                      y: {
+                          beginAtZero: true,
+                          ticks: {
+                              callback: function(value) {
+                                  if (value >= 1000000) {
+                                      return 'Rp ' + (value / 1000000) + ' Jt';
+                                  }
+                                  return 'Rp ' + (value / 1000) + ' Rb';
+                              }
+                          }
+                      }
+                  },
+                  responsive: true,
+                  plugins: {
+                      legend: { display: false },
+                      title: {
+                          display: true,
+                          text: 'Performa Penjualan 6 Bulan Terakhir'
+                      },
+                      tooltip: {
+                          callbacks: {
+                              label: function(context) {
+                                  let label = context.dataset.label || '';
+                                  if (label) {
+                                      label += ': ';
+                                  }
+                                  if (context.parsed.y !== null) {
+                                      label += new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(context.parsed.y);
+                                  }
+                                  return label;
+                              }
+                          }
+                      }
+                  }
+              }
+          });
+      });
+    </script>
+</body>
+</html>
